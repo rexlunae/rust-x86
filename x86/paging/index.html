@@ -9,6 +9,7 @@
 
     <title>x86::paging - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -45,10 +46,19 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-1458' class='srclink' href='../../src/x86/paging.rs.html#1-290' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-1458' class='srclink' href='../../src/x86/paging.rs.html#1-409' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Description of the data-structures for IA-32e paging mode.</p>
 </div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.PAddr.html'
+                               title='x86::paging::PAddr'>PAddr</a></td>
+                        <td class='docblock short'>
+                             <p>Represents a physical memory address</p>
+
+                        </td>
+                    </tr>
+                
                     <tr class=' module-item'>
                         <td><a class='struct' href='struct.PDEntry.html'
                                title='x86::paging::PDEntry'>PDEntry</a></td>
@@ -78,6 +88,15 @@
                                title='x86::paging::PTEntry'>PTEntry</a></td>
                         <td class='docblock short'>
                              
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.VAddr.html'
+                               title='x86::paging::VAddr'>VAddr</a></td>
+                        <td class='docblock short'>
+                             <p>Represent a virtual (linear) memory address</p>
+
                         </td>
                     </tr>
                 </table><h2 id='constants' class='section-header'><a href="#constants">Constants</a></h2>
@@ -520,14 +539,6 @@ If 1, instruction fetches are not allowed from the 512-GByte region.</p>
                 </table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
 <table>
                     <tr class=' module-item'>
-                        <td><a class='type' href='type.PAddr.html'
-                               title='x86::paging::PAddr'>PAddr</a></td>
-                        <td class='docblock short'>
-                             
-                        </td>
-                    </tr>
-                
-                    <tr class=' module-item'>
                         <td><a class='type' href='type.PD.html'
                                title='x86::paging::PD'>PD</a></td>
                         <td class='docblock short'>
@@ -561,14 +572,6 @@ In practice this has only 4 entries but it still needs to be the size of a 4K pa
                         <td class='docblock short'>
                              <p>A page table.</p>
 
-                        </td>
-                    </tr>
-                
-                    <tr class=' module-item'>
-                        <td><a class='type' href='type.VAddr.html'
-                               title='x86::paging::VAddr'>VAddr</a></td>
-                        <td class='docblock short'>
-                             
                         </td>
                     </tr>
                 </table></section>
@@ -630,6 +633,6 @@ In practice this has only 4 entries but it still needs to be the size of a 4K pa
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

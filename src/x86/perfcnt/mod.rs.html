@@ -9,6 +9,7 @@
 
     <title>mod.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../../main.css">
 
     
@@ -134,7 +135,7 @@
 <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Default</span>)]</span>
 <span class='kw'>struct</span> <span class='ident'>ModelWriter</span> {
     <span class='ident'>buffer</span>: [<span class='ident'>u8</span>; <span class='ident'>MODEL_LEN</span>],
-    <span class='ident'>index</span>: <span class='ident'>usize</span>
+    <span class='ident'>index</span>: <span class='ident'>usize</span>,
 }
 
 <span class='kw'>impl</span> <span class='ident'>ModelWriter</span> {
@@ -148,7 +149,7 @@
         <span class='comment'>// TODO: There exists probably a more efficient way of doing this:</span>
         <span class='kw'>for</span> <span class='ident'>c</span> <span class='kw'>in</span> <span class='ident'>s</span>.<span class='ident'>chars</span>() {
             <span class='kw'>if</span> <span class='self'>self</span>.<span class='ident'>index</span> <span class='op'>&gt;=</span> <span class='self'>self</span>.<span class='ident'>buffer</span>.<span class='ident'>len</span>() {
-                <span class='kw'>return</span> <span class='prelude-val'>Err</span>(<span class='ident'>Error</span>)
+                <span class='kw'>return</span> <span class='prelude-val'>Err</span>(<span class='ident'>Error</span>);
             }
             <span class='self'>self</span>.<span class='ident'>buffer</span>[<span class='self'>self</span>.<span class='ident'>index</span>] <span class='op'>=</span> <span class='ident'>c</span> <span class='kw'>as</span> <span class='ident'>u8</span>;
             <span class='self'>self</span>.<span class='ident'>index</span> <span class='op'>+=</span> <span class='number'>1</span>;
@@ -196,7 +197,8 @@
             <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>p</span>.<span class='ident'>event_name</span> <span class='op'>==</span> <span class='string'>&quot;INST_RETIRED.ANY&quot;</span>);
         });
     });
-}</pre>
+}
+</pre>
 </section>
     <section id='search' class="content hidden"></section>
 
@@ -256,6 +258,6 @@
     <script src="../../../jquery.js"></script>
     <script src="../../../main.js"></script>
     
-    <script async src="../../../search-index.js"></script>
+    <script defer src="../../../search-index.js"></script>
 </body>
 </html>

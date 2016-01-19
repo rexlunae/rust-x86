@@ -9,6 +9,7 @@
 
     <title>description.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../../../main.css">
 
     
@@ -285,13 +286,29 @@
 <span id="243">243</span>
 <span id="244">244</span>
 <span id="245">245</span>
+<span id="246">246</span>
+<span id="247">247</span>
+<span id="248">248</span>
+<span id="249">249</span>
+<span id="250">250</span>
+<span id="251">251</span>
+<span id="252">252</span>
+<span id="253">253</span>
+<span id="254">254</span>
+<span id="255">255</span>
+<span id="256">256</span>
+<span id="257">257</span>
+<span id="258">258</span>
+<span id="259">259</span>
+<span id="260">260</span>
+<span id="261">261</span>
 </pre><pre class='rust '>
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>fmt</span>;
 
 <span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>PebsType</span> {
     <span class='ident'>Regular</span>,
     <span class='ident'>PebsOrRegular</span>,
-    <span class='ident'>PebsOnly</span>
+    <span class='ident'>PebsOnly</span>,
 }
 
 <span class='kw'>impl</span> <span class='ident'>fmt</span>::<span class='ident'>Debug</span> <span class='kw'>for</span> <span class='ident'>PebsType</span> {
@@ -307,7 +324,7 @@
 
 <span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>Tuple</span> {
     <span class='ident'>One</span>(<span class='ident'>u8</span>),
-    <span class='ident'>Two</span>(<span class='ident'>u8</span>,<span class='ident'>u8</span>)
+    <span class='ident'>Two</span>(<span class='ident'>u8</span>, <span class='ident'>u8</span>),
 }
 
 <span class='kw'>impl</span> <span class='ident'>fmt</span>::<span class='ident'>Debug</span> <span class='kw'>for</span> <span class='ident'>Tuple</span> {
@@ -322,7 +339,7 @@
 <span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>MSRIndex</span> {
     <span class='prelude-val'>None</span>,
     <span class='ident'>One</span>(<span class='ident'>u8</span>),
-    <span class='ident'>Two</span>(<span class='ident'>u8</span>, <span class='ident'>u8</span>)
+    <span class='ident'>Two</span>(<span class='ident'>u8</span>, <span class='ident'>u8</span>),
 }
 
 <span class='kw'>impl</span> <span class='ident'>fmt</span>::<span class='ident'>Debug</span> <span class='kw'>for</span> <span class='ident'>MSRIndex</span> {
@@ -356,7 +373,6 @@
 
 <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Debug</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>IntelPerformanceCounterDescription</span> {
-
     <span class='doccomment'>/// This field maps to the Event Select field in the IA32_PERFEVTSELx[7:0]MSRs.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// The set of values for this field is defined architecturally.</span>
@@ -468,7 +484,7 @@
     <span class='doccomment'>/// This field lists the known bugs that apply to the events.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// For the latest, up to date errata refer to the following links:</span>
-    <span class='comment'>////</span>
+    <span class='doccomment'>/// /</span>
     <span class='doccomment'>/// * Haswell:</span>
     <span class='doccomment'>///   http://www.intel.com/content/dam/www/public/us/en/documents/specification-updates/4th-gen-core-family-mobile-specification-update.pdf</span>
     <span class='doccomment'>///</span>
@@ -487,20 +503,37 @@
 
     <span class='kw'>pub</span> <span class='ident'>filter</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span><span class='op'>&gt;</span>,
 
-    <span class='kw'>pub</span> <span class='ident'>extsel</span>: <span class='ident'>bool</span>
+    <span class='kw'>pub</span> <span class='ident'>extsel</span>: <span class='ident'>bool</span>,
 }
 
 <span class='kw'>impl</span> <span class='ident'>IntelPerformanceCounterDescription</span> {
-
     <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>dead_code</span>)]</span>
-    <span class='kw'>fn</span> <span class='ident'>new</span>(<span class='ident'>event_code</span>: <span class='ident'>Tuple</span>, <span class='ident'>umask</span>: <span class='ident'>Tuple</span>, <span class='ident'>event_name</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span>,
-           <span class='ident'>brief_description</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span>, <span class='ident'>public_description</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span><span class='op'>&gt;</span>,
-           <span class='ident'>counter</span>: <span class='ident'>Counter</span>, <span class='ident'>counter_ht_off</span>: <span class='ident'>Counter</span>, <span class='ident'>pebs_counters</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>Counter</span><span class='op'>&gt;</span>,
-           <span class='ident'>sample_after_value</span>: <span class='ident'>u64</span>, <span class='ident'>msr_index</span>: <span class='ident'>MSRIndex</span>, <span class='ident'>msr_value</span>: <span class='ident'>u64</span>, <span class='ident'>taken_alone</span>: <span class='ident'>bool</span>,
-           <span class='ident'>counter_mask</span>: <span class='ident'>u8</span>, <span class='ident'>invert</span>: <span class='ident'>bool</span>, <span class='ident'>any_thread</span>: <span class='ident'>bool</span>, <span class='ident'>edge_detect</span>: <span class='ident'>bool</span>, <span class='ident'>pebs</span>:
-           <span class='ident'>PebsType</span>, <span class='ident'>precise_store</span>: <span class='ident'>bool</span>, <span class='ident'>data_la</span>: <span class='ident'>bool</span>, <span class='ident'>l1_hit_indication</span>: <span class='ident'>bool</span>,
-           <span class='ident'>errata</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span><span class='op'>&gt;</span>, <span class='ident'>offcore</span>: <span class='ident'>bool</span>, <span class='ident'>unit</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span><span class='op'>&gt;</span>,
-           <span class='ident'>filter</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span><span class='op'>&gt;</span>, <span class='ident'>extsel</span>: <span class='ident'>bool</span>) <span class='op'>-&gt;</span> <span class='ident'>IntelPerformanceCounterDescription</span> {
+    <span class='kw'>fn</span> <span class='ident'>new</span>(<span class='ident'>event_code</span>: <span class='ident'>Tuple</span>,
+           <span class='ident'>umask</span>: <span class='ident'>Tuple</span>,
+           <span class='ident'>event_name</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span>,
+           <span class='ident'>brief_description</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span>,
+           <span class='ident'>public_description</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span><span class='op'>&gt;</span>,
+           <span class='ident'>counter</span>: <span class='ident'>Counter</span>,
+           <span class='ident'>counter_ht_off</span>: <span class='ident'>Counter</span>,
+           <span class='ident'>pebs_counters</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>Counter</span><span class='op'>&gt;</span>,
+           <span class='ident'>sample_after_value</span>: <span class='ident'>u64</span>,
+           <span class='ident'>msr_index</span>: <span class='ident'>MSRIndex</span>,
+           <span class='ident'>msr_value</span>: <span class='ident'>u64</span>,
+           <span class='ident'>taken_alone</span>: <span class='ident'>bool</span>,
+           <span class='ident'>counter_mask</span>: <span class='ident'>u8</span>,
+           <span class='ident'>invert</span>: <span class='ident'>bool</span>,
+           <span class='ident'>any_thread</span>: <span class='ident'>bool</span>,
+           <span class='ident'>edge_detect</span>: <span class='ident'>bool</span>,
+           <span class='ident'>pebs</span>: <span class='ident'>PebsType</span>,
+           <span class='ident'>precise_store</span>: <span class='ident'>bool</span>,
+           <span class='ident'>data_la</span>: <span class='ident'>bool</span>,
+           <span class='ident'>l1_hit_indication</span>: <span class='ident'>bool</span>,
+           <span class='ident'>errata</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span><span class='op'>&gt;</span>,
+           <span class='ident'>offcore</span>: <span class='ident'>bool</span>,
+           <span class='ident'>unit</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span><span class='op'>&gt;</span>,
+           <span class='ident'>filter</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span><span class='op'>&gt;</span>,
+           <span class='ident'>extsel</span>: <span class='ident'>bool</span>)
+           <span class='op'>-&gt;</span> <span class='ident'>IntelPerformanceCounterDescription</span> {
 
         <span class='ident'>IntelPerformanceCounterDescription</span> {
             <span class='ident'>event_code</span>: <span class='ident'>event_code</span>,
@@ -527,7 +560,7 @@
             <span class='ident'>offcore</span>: <span class='ident'>offcore</span>,
             <span class='ident'>unit</span>: <span class='ident'>unit</span>,
             <span class='ident'>filter</span>: <span class='ident'>filter</span>,
-            <span class='ident'>extsel</span>: <span class='ident'>extsel</span>
+            <span class='ident'>extsel</span>: <span class='ident'>extsel</span>,
         }
     }
 }
@@ -591,6 +624,6 @@
     <script src="../../../../jquery.js"></script>
     <script src="../../../../main.js"></script>
     
-    <script async src="../../../../search-index.js"></script>
+    <script defer src="../../../../search-index.js"></script>
 </body>
 </html>

@@ -9,6 +9,7 @@
 
     <title>time.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -130,7 +131,8 @@
 
     <span class='macro'>asm</span><span class='macro'>!</span>(<span class='string'>&quot;rdtscp&quot;</span> : <span class='string'>&quot;={eax}&quot;</span> (<span class='ident'>low</span>), <span class='string'>&quot;={edx}&quot;</span> (<span class='ident'>high</span>) ::: <span class='string'>&quot;volatile&quot;</span>);
     ((<span class='ident'>high</span> <span class='kw'>as</span> <span class='ident'>u64</span>) <span class='op'>&lt;&lt;</span> <span class='number'>32</span>) <span class='op'>|</span> (<span class='ident'>low</span> <span class='kw'>as</span> <span class='ident'>u64</span>)
-}</pre>
+}
+</pre>
 </section>
     <section id='search' class="content hidden"></section>
 
@@ -190,6 +192,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

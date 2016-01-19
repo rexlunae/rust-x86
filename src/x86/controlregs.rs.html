@@ -9,6 +9,7 @@
 
     <title>controlregs.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -83,21 +84,17 @@
 <span id="41">41</span>
 <span id="42">42</span>
 <span id="43">43</span>
-<span id="44">44</span>
-<span id="45">45</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! Functions to read and write control registers.</span>
 
-<span class='kw'>pub</span> <span class='kw'>unsafe</span> <span class='kw'>fn</span> <span class='ident'>cr0</span>() <span class='op'>-&gt;</span> <span class='ident'>u64</span>
-{
+<span class='kw'>pub</span> <span class='kw'>unsafe</span> <span class='kw'>fn</span> <span class='ident'>cr0</span>() <span class='op'>-&gt;</span> <span class='ident'>u64</span> {
     <span class='kw'>let</span> <span class='ident'>ret</span>: <span class='ident'>u64</span>;
     <span class='macro'>asm</span><span class='macro'>!</span>(<span class='string'>&quot;mov %cr0, $0&quot;</span> : <span class='string'>&quot;=r&quot;</span> (<span class='ident'>ret</span>));
     <span class='ident'>ret</span>
 }
 
 <span class='doccomment'>/// Write cr0.</span>
-<span class='kw'>pub</span> <span class='kw'>unsafe</span> <span class='kw'>fn</span> <span class='ident'>cr0_write</span>(<span class='ident'>val</span>: <span class='ident'>u64</span>)
-{
+<span class='kw'>pub</span> <span class='kw'>unsafe</span> <span class='kw'>fn</span> <span class='ident'>cr0_write</span>(<span class='ident'>val</span>: <span class='ident'>u64</span>) {
     <span class='macro'>asm</span><span class='macro'>!</span>(<span class='string'>&quot;mov $0, %cr0&quot;</span> :: <span class='string'>&quot;r&quot;</span> (<span class='ident'>val</span>) : <span class='string'>&quot;memory&quot;</span>);
 }
 
@@ -191,6 +188,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>
