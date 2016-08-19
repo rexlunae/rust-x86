@@ -39,6 +39,8 @@ bitflags! {
     }
 }
 
+/// Cr8 is just a number, 0-15, so far.
+pub type Cr8 = u64;
 
 /// Read cr0
 pub unsafe fn cr0() -> Cr0 {
@@ -81,4 +83,16 @@ pub unsafe fn cr4() -> Cr4 {
 /// Write cr4.
 pub unsafe fn cr4_write(val: Cr4) {
     asm!("mov $0, %cr4" :: "r" (val.bits) : "memory");
+}
+
+/// Contains various flags to control operations in protected mode.
+pub unsafe fn cr8() -> Cr8 {
+    let ret: Cr8;
+    asm!("mov %cr8, $0" : "=r" (ret));
+    ret
+}
+
+/// Write cr4.
+pub unsafe fn cr8_write(val: Cr8) {
+    asm!("mov $0, %cr8" :: "r" (val) : "memory");
 }
